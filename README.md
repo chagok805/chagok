@@ -3,7 +3,7 @@
 **"한 번 채워 달린 612km 중 380km는 가족을 위한 길이었어요."** 차가 주행거리와 정차 신호로 그 길이 누구를 위한 길이었는지 먼저 적어 두고, 틀렸을 때만 고치게 해서 말하지 못한 돌봄 운전을 처음으로 숫자로 보여 주는 Pleos Connect 앱입니다.
 
 - **실행 파일:** [`apk/해달_차곡차곡_release.apk`](apk/해달_차곡차곡_release.apk)
-- **시연 영상 (2분 58초):** [`demo/chagok-demo.mp4`](demo/chagok-demo.mp4)
+- **시연 영상 (2분 58초):** [`docs/chagok-demo.mp4`](docs/chagok-demo.mp4)
 
 ## 주요 기능
 
