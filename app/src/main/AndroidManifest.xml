@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Android Automotive OS app -->
+    <uses-feature android:name="android.hardware.type.automotive" android:required="true" />
+
+    <!-- Declare only the permissions for APIs you actually call. Pleos App Market rejects
+         Vehicle permissions that are not pre-approved (docs/pleos/guides/review-checklist.md B1). -->
+    <uses-permission android:name="pleos.car.permission.CAR_DRIVE" />
+    <uses-permission android:name="pleos.car.permission.CAR_DOORS" />
+    <uses-permission android:name="pleos.car.permission.CAR_SEATS" />
+    <uses-permission android:name="pleos.car.permission.CAR_ENERGY" />
+    <uses-permission android:name="pleos.car.permission.CAR_LIGHTS" />
+    <uses-permission android:name="pleos.car.permission.CONTROL_CAR_LIGHTS" />
+    <uses-permission android:name="pleos.car.permission.NAVI_ROUTE" />
+    <uses-permission android:name="pleos.car.permission.TTS_SERVICE" />
+    <!-- The parent's short message for "그날", recorded in Park only. -->
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <!-- AAOS platform property (not in the Vehicle SDK): gear is a normal permission. -->
+    <uses-permission android:name="android.car.permission.CAR_POWERTRAIN" />
+    <!-- Keeps trip splitting alive between screens; the ledger still works without it. -->
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_SPECIAL_USE" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+
+    <application
+        android:name=".ChagokApp"
+        android:allowBackup="false"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/Theme.Chagok">
+
+        <!-- This app has no rotary (CCP) focus handling yet (review-checklist.md B9). -->
+        <meta-data
+            android:name="com.hmg.rotary.ROTARY_SUPPORTED"
+            android:value="false" />
+
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:configChanges="orientation|screenSize|screenLayout|smallestScreenSize|uiMode|density|keyboard|keyboardHidden|navigation"
+            android:launchMode="singleTask">
+            <!-- Distraction optimized: while the platform restricts the screen, the activity shows only
+                 its resting screen (one sentence, nothing to touch). Everything else happens in Park.
+                 MainActivity follows CarUxRestrictions and fails closed. -->
+            <meta-data
+                android:name="distractionOptimized"
+                android:value="true" />
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <service
+            android:name=".RecorderService"
+            android:exported="false"
+            android:foregroundServiceType="specialUse">
+            <property
+                android:name="android.app.PROPERTY_SPECIAL_USE_FGS_SUBTYPE"
+                android:value="Records odometer stretches of a family car ledger while the vehicle is on" />
+        </service>
+        <receiver android:name=".BootReceiver" android:exported="false">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+    </application>
+</manifest>

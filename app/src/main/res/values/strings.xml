@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">차곡차곡</string>
+    <string name="notification_channel">기록</string>
+    <string name="notification_text">가족을 위해 달린 길을 적고 있어요</string>
+</resources>

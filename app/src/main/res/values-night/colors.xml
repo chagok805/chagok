@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- App canvas (dark): the brand canvas, so launch does not flash. -->
+    <color name="pleos_background_primary">#FF0B1220</color>
+</resources>

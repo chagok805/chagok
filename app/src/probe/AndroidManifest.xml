@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- `probe` build type only: extra AAOS read permissions so PropertyProbe can list what a
+     third-party app could read. debug and release keep the minimal set from src/main. -->
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+    <uses-permission android:name="android.car.permission.CAR_ENERGY" />
+    <uses-permission android:name="android.car.permission.CAR_ENERGY_PORTS" />
+    <uses-permission android:name="android.car.permission.CAR_TIRES" />
+    <uses-permission android:name="android.car.permission.CAR_MILEAGE" />
+    <uses-permission android:name="android.car.permission.CAR_INFO" />
+    <uses-permission android:name="android.car.permission.CAR_EXTERIOR_ENVIRONMENT" />
+    <uses-permission android:name="android.car.permission.CAR_EXTERIOR_LIGHTS" />
+    <uses-permission android:name="android.car.permission.READ_CAR_DISPLAY_UNITS" />
+    <uses-permission android:name="android.car.permission.CAR_DYNAMICS_STATE" />
+    <uses-permission android:name="android.car.permission.CAR_ENGINE_DETAILED" />
+</manifest>

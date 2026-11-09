@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- App canvas (light): the brand canvas, so launch does not flash. -->
+    <color name="pleos_background_primary">#FFEEF4F9</color>
+    <!-- Launcher background navy (drawable/ic_launcher_background.xml). docs/brand/README.md -->
+    <color name="ic_launcher_background">#FF13213D</color>
+</resources>
